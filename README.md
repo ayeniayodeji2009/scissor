@@ -74,3 +74,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 //Personal fixing
 npm install typescript <to replace> react-scripts later
+
+Useful Resourceful links
+https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/
+
+https://blog.logrocket.com/user-authentication-firebase-react-apps/
+
+
+
+
+

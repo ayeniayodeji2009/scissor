@@ -1,6 +1,8 @@
+//For URL Shortener
+
 //import 'firebase/firestore';
 import firebase from 'firebase/compat/app';
-// import 'firebase/compat/auth';
+//import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 // import 'firebase/compat/storage';
 //import * as firebase from 'firebase';
@@ -23,7 +25,7 @@ const firebaseConfig = {
   const firebaseApp = firebase.initializeApp(firebaseConfig);
  // export const db = firebase.firestore(app);
   const db = firebaseApp.firestore();
-  // const auth = firebase.auth();
+// const auth = firebaseApp.auth();
   // const storage = firebase.storage();
   // const provider = new firebase.auth.GoogleAuthProvider();
 
