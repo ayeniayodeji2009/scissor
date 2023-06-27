@@ -30,7 +30,7 @@ function Dashboard() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
-  const convertUserNameForURLFormat = name.split(" ").join("_");
+  const convertUserNameForURLFormat = name.toLowerCase().split(" ").join("_"); 
   //const userID = name
 
   // { name } = useParams();

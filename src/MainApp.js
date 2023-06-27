@@ -36,7 +36,11 @@ function MainApp(props) {
 
     let currentUser = props.passUser; // 1st pass within app
 
+    //let shortURL = `${hostDomainName}/${currentUser}/${code}`;
+    
+
     await db.collection('urls').add({
+      //shortenedURL: shortURL,
       url: url,
       customDomain: customDomain,
       currentUser: props.passUser, // 2nd pass going to Database
