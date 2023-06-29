@@ -12,7 +12,8 @@ function GoLink() {
 
     //throttle is used to prevent the user from clicking the button multiple times
     const throttledNavigateHistory = throttle((path) => {
-        history(path);
+        //history.push(path) // Previous code when using react-router-dom v5 with useHistory hook
+        history(path); // New code when using react-router-dom v6 with useNavigate hook
     }, 1000);
 
     useEffect(() => {
