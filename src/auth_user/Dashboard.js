@@ -33,7 +33,7 @@ function Dashboard() {
   }, [user, loading]);
 
   const at = "@";
-  const convertUserNameForURLFormat = at.concat(name.toLowerCase().split(" ").join("_")); 
+  const convertUserNameForURLFormat = at.concat(name.toLowerCase().split(" ").join("_")); // this will convert the name to a url format i.e @username . It will also be passed to the MainApp component and added to the url as a path (i.e /@user/) after the domain name
   //const userID = name
 
   // { name } = useParams();
