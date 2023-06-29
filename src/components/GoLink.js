@@ -12,7 +12,7 @@ function GoLink() {
 
     //throttle is used to prevent the user from clicking the button multiple times
     const throttledNavigateHistory = throttle((path) => {
-        history.push(path);
+        history(path);
     }, 1000);
 
     useEffect(() => {
