@@ -10,6 +10,7 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
+
 import {
   getFirestore,
   query,
@@ -35,6 +36,7 @@ const app = initializeApp(firebaseConfig); // Initialize Firebase
 const auth = getAuth(app); // Initialize Firebase Auth
 const db = getFirestore(app);  // Initialize Firebase Firestore
 const googleProvider = new GoogleAuthProvider(); // Initialize Firebase Google Auth Provider
+
 const signInWithGoogle = async () => { // Sign in with Google
   try { // Try to sign in with Google Auth Provider
     const res = await signInWithPopup(auth, googleProvider); // Sign in with Google Auth Provider
@@ -54,6 +56,7 @@ const signInWithGoogle = async () => { // Sign in with Google
     alert(err.message); // Alert error message
   }
 };
+
 const logInWithEmailAndPassword = async (email, password) => { // Sign in with email and password
   try { // Try to sign in with email and password
     await signInWithEmailAndPassword(auth, email, password); // Sign in with email and password
@@ -62,6 +65,7 @@ const logInWithEmailAndPassword = async (email, password) => { // Sign in with e
     alert(err.message); // Alert error message
   } 
 };
+
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -77,6 +81,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     alert(err.message);
   }
 };
+
 const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
@@ -86,9 +91,11 @@ const sendPasswordReset = async (email) => {
     alert(err.message);
   }
 };
+
 const logout = () => {
   signOut(auth);
 };
+
 export {
   auth,
   db,

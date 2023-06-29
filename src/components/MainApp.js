@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { db } from './firebase';
+import { db } from '../engine/firebase';
 //import { v4 as uuidv4 } from 'uuid';
 import { customAlphabet } from "nanoid";
 import QRCode from 'qrcode.react';
 import './MainApp.css';
+//import { useAuthState } from "react-firebase-hooks/auth";
+//import { trackUrl, /* analytics */ } from "./firebase02";
 
 function MainApp(props) {
   const [url, setUrl] = useState('');
@@ -49,6 +51,8 @@ function MainApp(props) {
      /* length: Math.random().toString(36).slice(-5), */
     });
 
+   // trackUrl(`${hostDomainName}/${currentUser}/${code}`); // 3rd pass going to Analytics
+    //analytics(`${hostDomainName}/${currentUser}/${code}`); // 4th pass going to Analytics
     console.log("Hiiiiiiiii "+qrCode)
     setQrCode(`${hostDomainName}/${currentUser}/${code}`)
     alert(`This is your Shortened URL - ${hostDomainName}/${currentUser}/${code}. Click "OK" to see QR Code of the URL.`);

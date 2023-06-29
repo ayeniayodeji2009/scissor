@@ -1,7 +1,7 @@
 import React from 'react';
 //import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Home.css';
-import Navigate from './Navigate';
+import Navigation from './Navigation';
 
 
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
         <div className="home">
             <h1>Hello Scissor Home</h1>
             <p>I am the landing page</p>
-            <Navigate />
+            <Navigation />
         </div>
     )
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../firebase01";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../engine/firebase01";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { throttle } from 'lodash';
+import Navigation from "../components/Navigation";
 import "./Login.css";
 
 
@@ -10,12 +11,13 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading] = useAuthState(auth);
-  const navigate = useHistory();
+  const navigate = useNavigate();
 
 
 //throttle is used to prevent the user from clicking the button multiple times
   const throttledNavigate = throttle((path) => {
-    navigate.push(path);
+    //navigate.push(path);
+    navigate(path);
 }, 1000);
 
   useEffect(() => {
@@ -28,6 +30,9 @@ function Login() {
   }, [user, loading]);
 
   return (
+  
+      <div className="login__container">
+      <Navigation />
     <div className="login">
       <h1>Hello Scissor Login</h1>
       <div className="login__container">
@@ -61,6 +66,7 @@ function Login() {
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
-import { auth, db, logout } from "../firebase01";
+import { auth, db, logout } from "../engine/firebase01";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import AnalythicsRecord from "../analythics_user/AnalythicsRecord";
-import MainApp from "../MainApp";
+import MainApp from "../components/MainApp";
+import Navigation from "../components/Navigation";
+
 
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
-  const navigate = useHistory();
+  const navigate = useNavigate();
   const fetchUserName = async () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));/*this will get the user data from the database*/
@@ -25,12 +27,13 @@ function Dashboard() {
   };
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate.push("/"); //if user is not logged in, redirect to login page
+    if (!user) return navigate("/")//navigate.push("/"); //if user is not logged in, redirect to login page
     fetchUserName(); //fetch user data
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
-  const convertUserNameForURLFormat = name.toLowerCase().split(" ").join("_"); 
+  const at = "@";
+  const convertUserNameForURLFormat = at.concat(name.toLowerCase().split(" ").join("_")); 
   //const userID = name
 
   // { name } = useParams();
@@ -38,6 +41,8 @@ function Dashboard() {
   //console.log(`${name} is ${typeof(name)}`);
   return (
       <div className="app">
+        <Navigation />
+    <div className="dashboard__container">
       <h1>Hello Scissor Dashboard</h1>
     <div className="dashboard">
        <div className="dashboard__container">
@@ -48,8 +53,9 @@ function Dashboard() {
           Logout
          </button>
        </div>
+       </div>
      </div>
-       <MainApp passUser={convertUserNameForURLFormat}/> {/**/}
+       <MainApp passUser={convertUserNameForURLFormat}/> {/**/}       
       <AnalythicsRecord />
       </div>
   );

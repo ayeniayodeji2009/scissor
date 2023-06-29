@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { db } from "./firebase";
+import { useNavigate, useParams } from "react-router-dom";
+import { db } from "../engine/firebase";
 import { throttle } from 'lodash';
 
 
 
 function GoLink() {
     const { code } = useParams();
-    const history = useHistory();
+    const history = useNavigate();
     const [url, setUrl] = useState(""); //this will be the url from the database
 
     //throttle is used to prevent the user from clicking the button multiple times
@@ -19,7 +19,7 @@ function GoLink() {
         let query = db.collection("urls").where("code", "==", code); //this will get the code from the database
         query.onSnapshot((data) => { //this will get the data from the database
 if (data.empty) {//if the code is not found in the database
-    return throttledNavigateHistory("/user/"); //this will redirect to the home page if the code is not found in the database
+    return throttledNavigateHistory("/user"); //this will redirect to the home page if the code is not found in the database
 } 
 
 let finalData = data.docs[0].data(); //this will get the data from the database

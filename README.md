@@ -80,6 +80,12 @@ https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/
 
 https://blog.logrocket.com/user-authentication-firebase-react-apps/
 
+https://blog.logrocket.com/user-authentication-firebase-react-apps/
+
+https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/
+
+https://www.freecodecamp.org/news/performance-and-user-tracking-in-react-with-google-analytics/
+
 
 
 
