@@ -3,6 +3,7 @@ import { db } from '../engine/firebase';
 //import { v4 as uuidv4 } from 'uuid';
 import { customAlphabet } from "nanoid";
 import QRCode from 'qrcode.react';
+//import QRious from "qrious";
 import './MainApp.css';
 //import { useAuthState } from "react-firebase-hooks/auth";
 //import { trackUrl, /* analytics */ } from "./firebase02";
@@ -59,25 +60,40 @@ function MainApp(props) {
   };
 
 
+  // Download QR Code
+  // const downloadQR = () => {
+  //   const canvas = document.getElementById("123456");
+  //   const pngUrl = canvas
+  //     .toDataURL("image/png")
+  //     .replace("image/png", "image/octet-stream");
+  //   let downloadLink = document.createElement("a");
+  //   downloadLink.href = pngUrl;
+  //   downloadLink.download = "123456.png";
+  //   document.body.appendChild(downloadLink);
+  //   downloadLink.click();
+  //   document.body.removeChild(downloadLink);
+  // };
+
 
 
   return (
-    <div className="Home">
+    <div className="mainApp">
       <h1>URL Shortner</h1>
-      <form onSubmit={handleFormSubmit}>
-        <input type="text" value={url} onChange={e => setUrl(e.target.value) }
+      <form onSubmit={handleFormSubmit} className="mainApp__container">
+        <input type="text" className="mainApp__textBox" value={url} onChange={e => setUrl(e.target.value) }
           placeholder="Enter your long URL here....." 
           />
           <br />
-        <input type="text" value={customDomain} onChange={e => setCustomDomain(e.target.value) }
-          placeholder="Enter your brand name here....." 
+        <input type="text" className="mainApp__textBox" value={customDomain} onChange={e => setCustomDomain(e.target.value) }
+          placeholder="Customise your link code....." 
           />
-
-          
-
-        <button type="submit">Click to Shorten your URL</button>
+          <br />
+        <button type="submit" className="mainApp__btn">Click to Shorten your URL</button>
         <br />
-        <QRCode value={qrCode} />
+        <br />
+        <QRCode id="12345" className="qr-code" value={qrCode} size={150} level={"H"} includeMargin={false} />
+        <br />
+        {/*<button varient="contained" href={qrCode} download="qrcode.png" >Download QR</button> onClick={downloadQR}*/}
       </form>
     </div>
   );

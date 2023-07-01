@@ -43,20 +43,16 @@ function Dashboard() {
     <div className="dashboard">    
       <Navigation />
     <div className="dashboard__container">
-      <h1>Scissor Dashboard</h1>
-    <div >
-       <div className="dashboard__container">
-        <h3>Hi {name},</h3> You are logged in as;
-         <div>User Account: {convertUserNameForURLFormat}</div>
-         <div>E-mail: {user?.email}</div>
+        <h5>Hi {name},</h5> 
+        <p>You are logged in as;<br />
+         User Account: {convertUserNameForURLFormat}<br />
+         E-mail: {user?.email}</p>
          <button className="dashboard__btn" onClick={logout}>
           Logout
          </button>
-       </div>
-       </div>
+      </div>
        <MainApp passUser={convertUserNameForURLFormat}/> {/**/}       
       <AnalythicsRecord />
-      </div>
       </div>
   );
 }
