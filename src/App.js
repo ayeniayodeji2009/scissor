@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; //SEO
 import Login from './auth_user/Login';
 import Register from './auth_user/Register';
 import Reset from './auth_user/Reset';
@@ -21,6 +22,17 @@ function App() {
   return (
     <div className="app">
       <Router>
+        <Helmet>
+          <title>Scissor</title>
+          <meta
+          name="description"
+          content="Shorten your long links with Scissor today."
+        />
+        <meta
+          name="keywords"
+          content="easy, today, Analytics, Link Analytics, Digital Marketing, URL, URLs, URI, URIs, Shorten URL, Shorten URI, Shorten Link, Shorten Links, Shorten URLs, Shorten URIs, Short"
+        />
+        </Helmet>
         <Routes>
           <Route index element={<Home />} /> {/*  This is the route for the Home component */}
           <Route  path="/about" element={<About />} />

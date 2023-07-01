@@ -63,10 +63,10 @@ function MainApp(props) {
 
   return (
     <div className="Home">
-      <h1>Dashboard</h1>
+      <h1>URL Shortner</h1>
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={url} onChange={e => setUrl(e.target.value) }
-          placeholder="Enter the URL here....." 
+          placeholder="Enter your long URL here....." 
           />
           <br />
         <input type="text" value={customDomain} onChange={e => setCustomDomain(e.target.value) }
@@ -75,7 +75,7 @@ function MainApp(props) {
 
           
 
-        <button type="submit">Shorten the URL</button>
+        <button type="submit">Click to Shorten your URL</button>
         <br />
         <QRCode value={qrCode} />
       </form>

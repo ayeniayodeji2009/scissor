@@ -30,35 +30,19 @@ function Login() {
   }, [user, loading]);
 
   return (
-  
-      <div className="login__container">
-      <Navigation />
     <div className="login">
+    <Navigation />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <h1>Hello Scissor Login</h1>
       <div className="login__container">
-        <input
-          type="text"
-          className="login__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <input
-          type="password"
-          className="login__textBox"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button
-          className="login__btn"
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        >
-          Login
-        </button>
-        <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
-        </button>
+        <input type="text" className="login__textBox" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />
+        <input type="password" className="login__textBox" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+        <button className="login__btn" onClick={() => logInWithEmailAndPassword(email, password)}>Login</button>
+        <button className="login__btn login__google" onClick={signInWithGoogle}>Login with Google</button>
         <div>
           <Link to="/reset">Forgot Password</Link>
         </div>
@@ -66,7 +50,10 @@ function Login() {
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>
       </div>
-    </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

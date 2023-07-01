@@ -1,3 +1,17 @@
+.app {
+  text-align: center;
+  background-color: rgb(218, 215, 215);
+  min-height: 100vh;
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  /* border: 1px solid #1dcf52; */
+  padding: 0;
+}
+
+
+
+/*
 .App {
   text-align: center;
 }
@@ -27,7 +41,8 @@
 .App-link {
   color: #61dafb;
 }
-
+*/
+/*
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,12 +51,4 @@
     transform: rotate(360deg);
   }
 }
-
-.app {
-  text-align: center;
-  background-color: #98b3e9;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center
-}
+*/
