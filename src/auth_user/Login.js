@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../engine/firebase01";
+import { auth, logInWithEmailAndPassword, signInWithGoogle, signInWithFacebook } from "../engine/firebase01";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { throttle } from 'lodash';
 import Navigation from "../components/Navigation";
@@ -40,7 +40,7 @@ function Login() {
       <p>log in with:</p>
         <div className="auth_with_mail">
         <button className="login__btn login__google" onClick={signInWithGoogle}>Google</button>
-        <button className="login__btn login__apple" onClick={signInWithGoogle}>Apple</button>
+        <button className="login__btn login__facebook" onClick={signInWithFacebook}>Facebook</button>
         </div>
         <p>-----------------------  or  -----------------------</p>
         <input type="text" className="login__textBox" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="E-mail Address" />

@@ -7,6 +7,7 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
+  signInWithFacebook,
 } from "../engine/firebase01";
 
 import { throttle } from 'lodash';
@@ -42,12 +43,18 @@ function Register() {
   return (
     <div className="register">
       <div className="register__container">
+      <p>log in with:</p>
+        <div className="auth_with_mail">
+        <button className="login__btn login__google" onClick={signInWithGoogle}>Google</button>
+        <button className="login__btn login__facebook" onClick={signInWithFacebook}>Facebook</button>
+        </div>
+        <p>-----------------------  or  -----------------------</p>
         <input
           type="text"
           className="register__textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="User Name"
         />
         <input
           type="text"
@@ -63,17 +70,25 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
+        {/* <input
+          type="password"
+          className="register__textBox"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Retype Password"
+        /> */}
+        <p>6 or more characters, one number, one Upper & one Lower case.</p>
         <button className="register__btn" onClick={register}>
-          Register
+          Sign Up with Email
         </button>
-        <button
+        {/* <button
           className="register__btn register__google"
           onClick={signInWithGoogle}
         >
           Register with Google
-        </button>
+        </button> */}
         <div>
-          Already have an account? <Link to="/">Login</Link> now.
+          Already have an account? <Link to="/login">Login</Link> here.
         </div>
       </div>
     </div>

@@ -35,11 +35,7 @@
     color: white;
     background-color: #4285f4;
   }
-  .login__google {
-    border-radius: 5px;
-  }
-
-  .login__apple {
+  .login__google, .login__facebook {
     border-radius: 5px;
   }
 
