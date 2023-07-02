@@ -13,18 +13,21 @@
     padding: 30px;
   }
   .reset__textBox {
-    padding: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid blue;
     font-size: 18px;
     margin-bottom: 10px;
   }
   .reset__btn {
     padding: 10px;
+    border-radius: 25px;
     font-size: 18px;
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: #4285f4;
   }
-  .reset div {
+  /* .reset div {
     margin-top: 7px;
-  }
+  } */
