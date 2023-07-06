@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
-import { auth, db, logout } from "../engine/firebase01";
+import { auth, db, /*logout*/ } from "../engine/firebase01";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import AnalythicsRecord from "../analythics_user/AnalythicsRecord";
 import MainApp from "../components/MainApp";
-import Navigation from "../components/Navigation";
+import NavigationUser from "../components/NavigationUser";
 
 
 
@@ -41,15 +41,16 @@ function Dashboard() {
   //console.log(`${name} is ${typeof(name)}`);
   return (
     <div className="dashboard">    
-      <Navigation />
+      <NavigationUser />
     <div className="dashboard__container">
         <h5>Hi {name},</h5> 
         <p>You are logged in as;<br />
          User Account: {convertUserNameForURLFormat}<br />
-         E-mail: {user?.email}</p>
-         <button className="dashboard__btn" onClick={logout}>
+         E-mail: {user?.email}
+         </p>
+         {/* <button className="dashboard__btn" onClick={logout}>
           Logout
-         </button>
+         </button> */}
       </div>
        <MainApp passUser={convertUserNameForURLFormat}/> {/**/}       
       <AnalythicsRecord />

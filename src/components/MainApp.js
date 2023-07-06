@@ -80,9 +80,9 @@ function MainApp(props) {
     <div className="mainApp">
       <h1>URL Shortner</h1>
       <form onSubmit={handleFormSubmit} className="mainApp__container">
-        <input type="text" className="mainApp__textBox" value={url} onChange={e => setUrl(e.target.value) }
-          placeholder="Enter your long URL here....." 
-          />
+        <input type="url" className="mainApp__textBox" value={url} onChange={e => setUrl(e.target.value) }
+          placeholder="Enter your long URL here....." title="Input your long URL here"
+          required />
           <br />
         <input type="text" className="mainApp__textBox" value={customDomain} onChange={e => setCustomDomain(e.target.value) }
           placeholder="Customise your link code....." 

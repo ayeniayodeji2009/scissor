@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  /* height: 70vh; */
   width: 70%;
   margin: 0px auto;
   border: 3px inset blue;
@@ -24,11 +24,16 @@
 .mainApp__textBox {
     padding: 5px;
     border-radius: 5px;
-    border: 2px solid blue;
+    border: 1.9px solid blue;
     font-size: 18px;
     margin-bottom: 10px;
 }
 
+.mainApp__textBox:focus {
+    outline: none;
+    border: 3.5px solid blue;
+    transition: 0.8s;
+}
 /* .qr-code {
     display: none;
 } */
@@ -40,5 +45,12 @@
   margin-bottom: 10px;
   border: none;
   color: white;
-  background-color: #4285f4;
+  background-color: rgb(58, 58, 250);
+}
+
+.mainApp__btn:hover {
+  font-weight: 500;
+  cursor: pointer;
+  background-color: rgb(6, 6, 233);
+  transition: 0.5s;
 }
