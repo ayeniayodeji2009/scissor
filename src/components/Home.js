@@ -113,6 +113,47 @@ function Home() {
                     </div>
                 </div>
                 </div>
+                <div>
+                    <h1>| A <span className="blue_heading">price perfect</span> for your needs.</h1>
+                    <p>From catering for your personal,business, event, social needs, you can be<br />
+                    rest assured we have you in mind in our pricing.</p>
+                    <div className="price__parent">
+                        <div className="price__child">
+                            <h3>Basic</h3>
+                            <h1>Free</h1>
+                            <h5>Free plan for all users</h5>
+                            <p>- Unlimited URL shortening</p>
+                            <p>- Basic Link Analytics</p>
+                            <p>- Customizable Short Links</p>
+                            <p>- Standard Support</p>
+                            <p>- Ad-support</p>
+                        </div>
+                        <div className="price__child_special">
+                            <h3>Professional</h3>
+                            <h1>$15/month</h1>
+                            <h5>Ideal for business creators</h5>
+                            <p>- Enhanced Link Analytics</p>
+                            <p>- Custom Branded Domains</p>
+                            <p>- Advanced Link Customization</p>
+                            <p>- Priority Support</p>
+                            <p>- Ad-support</p>
+                        </div>
+                        <div className="price__child">
+                            <h3>Teams</h3>
+                            <h1>$25/month</h1>
+                            <h5>Share with up to 10 users</h5>
+                            <p>- Team Collaboration</p>
+                            <p>- User Roles and Permissions</p>
+                            <p>- Enhanced Security</p>
+                            <p>- API Access</p>
+                            <p>- A Dedicated Account Manager</p>
+                        </div>
+                    </div>
+                    <div className="price__btn_container">
+                    <button className="price__btn">Get Custom Pricing</button>
+                    <button className="price__btn">Select Pricing</button>
+                    </div>
+                </div>
             
         </div>
     )
