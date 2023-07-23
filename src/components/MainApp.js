@@ -10,8 +10,10 @@ import './MainApp.css';
 
 function MainApp(props) {
   const [url, setUrl] = useState('');
-  const [customDomain, setCustomDomain] = useState(''); //this will be the brand name of the user
+  const [shortUrl, setShortUrl] = useState(''); //this will be the shortened url
+  const [customDomain, setCustomDomain] = useState(''); /*this will be the brand name of the user*/
   const [qrCode, setQrCode] = useState(''); //this will be the qr code of the shortened url
+  const [hideQRImage, setHideQRImage] = useState(true); //this will hide the qr code image
 
 
   const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz9876543210", 3); // nanoid() code generated to be 3 characters long for the url
@@ -55,24 +57,45 @@ function MainApp(props) {
    // trackUrl(`${hostDomainName}/${currentUser}/${code}`); // 3rd pass going to Analytics
     //analytics(`${hostDomainName}/${currentUser}/${code}`); // 4th pass going to Analytics
     console.log("Hiiiiiiiii "+qrCode)
-    setQrCode(`${hostDomainName}/${currentUser}/${code}`)
-    alert(`This is your Shortened URL - ${hostDomainName}/${currentUser}/${code}. Click "OK" to see QR Code of the URL.`);
+    setShortUrl(`${hostDomainName}/${currentUser}/${code}`); //this will be the shortened url
+    setQrCode(shortUrl) //this will be the qr code of the shortened url
+    // alert(`This is your Shortened URL - ${hostDomainName}/${currentUser}/${code}. Click "OK" to see QR Code of the URL.`);
+
+    // Clear input field and state to receive new input
+    e.target.reset();
+    //setUrl('');
+    setCustomDomain('');
   };
 
 
-  // Download QR Code
-  // const downloadQR = () => {
-  //   const canvas = document.getElementById("123456");
-  //   const pngUrl = canvas
-  //     .toDataURL("image/png")
-  //     .replace("image/png", "image/octet-stream");
-  //   let downloadLink = document.createElement("a");
-  //   downloadLink.href = pngUrl;
-  //   downloadLink.download = "123456.png";
-  //   document.body.appendChild(downloadLink);
-  //   downloadLink.click();
-  //   document.body.removeChild(downloadLink);
-  // };
+  
+  const downloadQR = () => {
+    const canvas = document.getElementById("qr-code");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "qr-code.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
+
+
+
+
+
+  // Copy to Clipboard
+  const copyValue = (val) => {
+    var aux = document.createElement("input");
+    aux.setAttribute("value", val);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+  };
 
 
 
@@ -80,35 +103,45 @@ function MainApp(props) {
     <div className="mainApp">
       <h1>URL Shortner</h1>
       <form onSubmit={handleFormSubmit} className="mainApp__container">
-        <input type="url" className="mainApp__textBox" value={url} onChange={e => setUrl(e.target.value) }
+        <input type="url" className="mainApp__textBox" /*value={url}*/ onChange={e => setUrl(e.target.value) }
           placeholder="Enter your long URL here....." title="Input your long URL here"
           required />
           <br />
-        <input type="text" className="mainApp__textBox" value={customDomain} onChange={e => setCustomDomain(e.target.value) }
+        <input type="text" className="mainApp__textBox" /*value={customDomain}*/ onChange={e => setCustomDomain(e.target.value) }
           placeholder="Customise your link code....." 
           />
           <br />
         <button type="submit" className="mainApp__btn">Click to Shorten your URL</button>
         <br />
-        <br />
-        <QRCode id="12345" className="qr-code" value={qrCode} size={150} level={"H"} includeMargin={false} />
+      </form>
+      <div>
+            <h3>{/*Your Shortened URL is - */}{shortUrl}</h3>
+            <button onClick={() => copyValue(shortUrl)}>Copy</button>
+            <br />
+            <br />
+            { hideQRImage ? (
+              <button onClick={() => setHideQRImage(false)}>View QR image</button>
+            ) : (
+            <>
+              <QRCode id="qr-code" className="qr-code" value={qrCode} size={250} level={"H"} includeMargin={true} />
+              <br />
+              <button onClick={() => setHideQRImage(true)}>Hide QR image</button>
+            </>
+            )}
+            {/* <button>View QR image</button> */}
+            <br />
+
+            <br />
+            <button onClick={downloadQR} >Download QR</button>
+
         <br />
         {/*<button varient="contained" href={qrCode} download="qrcode.png" >Download QR</button> onClick={downloadQR}*/}
-      </form>
+        </div>
     </div>
   );
 }
 
 export default MainApp;
 
-
-// {
-//   if ( e.target.value === "" || e.target.value.length < -1 ) {
-//     console.log("Check input = "+ e)
-//     alert("Please enter a valid URL")
-// } else {
-//     console.log("Check input = "+ e)
-//   setUrl(e.target.value)
-// } }
 
 //Note: without https:// or http:// before domain name in input field, the url will not work.

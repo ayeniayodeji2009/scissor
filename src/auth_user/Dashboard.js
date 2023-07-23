@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { auth, db, /*logout*/ } from "../engine/firebase01";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import AnalythicsRecord from "../analythics_user/AnalythicsRecord";
+// import AnalythicsRecord from "../analythics_user/AnalythicsRecord";
 import MainApp from "../components/MainApp";
 import NavigationUser from "../components/NavigationUser";
 
@@ -53,7 +53,7 @@ function Dashboard() {
          </button> */}
       </div>
        <MainApp passUser={convertUserNameForURLFormat}/> {/**/}       
-      <AnalythicsRecord />
+      {/* <AnalythicsRecord /> */}
       </div>
   );
 }
