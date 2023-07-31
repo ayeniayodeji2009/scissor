@@ -133,7 +133,7 @@ function MainApp(props) {
 
             <br />
             <button onClick={downloadQR} >Download QR</button>
-
+            <br />
         <br />
         {/*<button varient="contained" href={qrCode} download="qrcode.png" >Download QR</button> onClick={downloadQR}*/}
         </div>
@@ -145,3 +145,4 @@ export default MainApp;
 
 
 //Note: without https:// or http:// before domain name in input field, the url will not work.
+//Note: QR image does not load automatically. You have to click on the "View QR image" for image to load and activate new short url. Try useEffect

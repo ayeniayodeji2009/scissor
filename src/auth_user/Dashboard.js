@@ -54,6 +54,11 @@ function Dashboard() {
       </div>
        <MainApp passUser={convertUserNameForURLFormat}/> {/**/}       
       {/* <AnalythicsRecord /> */}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       </div>
   );
 }

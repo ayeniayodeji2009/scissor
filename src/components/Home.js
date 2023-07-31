@@ -38,7 +38,7 @@ function Home() {
             </section>
             <img src="../scissor_homepage_image_1.png" alt="hero" className="home__heroImg" />
             <div className="hero_2">
-                <div className="hero_2_child_1" ><h1>One Stop.<br />Four <span className="blue_heading">Possibilities</span>.</h1></div>
+                <div className="hero_2_child_1" ><h1>One Stop.<br />Four <span>Possibilities</span>.</h1></div>
                 <div className="hero_2_child_2">
                     <div>
                         <h2>3M</h2>
@@ -62,7 +62,7 @@ function Home() {
             </div>
             <div className="hero_2">
                 <div className="hero_2_child_1" >
-                <h1>| Why choose <span className="blue_heading">Scissor</span>.</h1>
+                <h1>| Why choose <span>Scissor</span>.</h1>
                 <p>Scissor is the hub of everything that has to do<br />
                     with your links management. We shorten your URLs,<br />
                     allow you creating custom one for your personal<br />
@@ -114,7 +114,7 @@ function Home() {
                 </div>
                 </div>
                 <div>
-                    <h1>| A <span className="blue_heading">price perfect</span> for your needs.</h1>
+                    <h1>| A <span>price perfect</span> for your needs.</h1>
                     <p>From catering for your personal,business, event, social needs, you can be<br />
                     rest assured we have you in mind in our pricing.</p>
                     <div className="price__parent">

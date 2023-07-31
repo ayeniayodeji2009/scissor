@@ -17,19 +17,22 @@ function Navigation() {
     return (
       <section className="nav_container">
         <div className=".nav_logo">
-       {/* <img src="../Openclipart-Scissors-Logo-in-Blue.png" height="25%" width="25%" alt="Scissor Logo" /> */}
-        <span id="logo_name"><h1>Scissor</h1></span>
+       <img src="../logo_(1).png" /*height="25%" width="25%"*/ alt="Scissor Logo" />
+        {/* <span id="logo_name"><h1>Scissor</h1></span> */}
         </div>
 
 
     <nav className="nav nav-pills flex-column flex-sm-row">
-    <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color active" aria-current="page" to="/">My URLs</NavLink>
+    <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color not_active" aria-current="page" to="/">My URLs</NavLink>
     <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color" to="/features">Features \/</NavLink>
     <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color" to="/pricing">Pricing</NavLink>
 {/* <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link" to="/UsersTest">Users</NavLink> */}
     <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color" to="/analytics">Analytics</NavLink>
     <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color" to="/faqs">FAQs</NavLink>
-    <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color" to="/login">Login</NavLink> 
+    </nav>
+    
+    <nav className="nav nav-pills flex-column flex-sm-row">
+    <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color not_active" to="/login">Login</NavLink> 
     <NavLink style={currentPageNav} className="flex-sm-fill text-sm-center nav-link nav-text-color active" to="/try_for_free">Try for free</NavLink>
      </nav>
       </section>

@@ -56,13 +56,22 @@
     text-decoration: none;
 }
 
-.blue_heading {
-    color: blue;
-    /* font-size: 30px;
-    font-weight: 700; */
-    margin: 10px auto;
-    padding: 5px;
+span, .blue_heading {
+    color: rgba(0, 90, 226, 1);
+    margin: 0;
+    position: relative;
 }
+
+.blue_heading::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 90px;
+    width: 173.63px;
+    height: 19.91px;
+    background-image: url("/public/shortening-dash.png");
+    background-size: cover;
+  }
 
 .home__heroImg {
     border-radius: 10px;
