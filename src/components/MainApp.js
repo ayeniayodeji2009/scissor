@@ -14,6 +14,8 @@ function MainApp(props) {
   const [customDomain, setCustomDomain] = useState(''); /*this will be the brand name of the user*/
   const [qrCode, setQrCode] = useState(''); //this will be the qr code of the shortened url
   const [hideQRImage, setHideQRImage] = useState(true); //this will hide the qr code image
+  const copyState = "Copy";
+  const [copyURL, setCopyURL] = useState(copyState);
 
 
   const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz9876543210", 3); // nanoid() code generated to be 3 characters long for the url
@@ -97,6 +99,13 @@ function MainApp(props) {
     document.body.removeChild(aux);
   };
 
+  function handleCopy() {
+    copyValue(shortUrl)
+
+    setCopyURL('Copied !!!')
+
+    setTimeout(() => {setCopyURL(copyState)}, 3000);
+  }
 
 
   return (
@@ -116,23 +125,23 @@ function MainApp(props) {
       </form>
       <div>
             <h3>{/*Your Shortened URL is - */}{shortUrl}</h3>
-            <button onClick={() => copyValue(shortUrl)}>Copy</button>
+            <button onClick={handleCopy} className="mainApp__btn">{copyURL}</button>
             <br />
             <br />
             { hideQRImage ? (
-              <button onClick={() => setHideQRImage(false)}>View QR image</button>
+              <button onClick={() => setHideQRImage(false)} className="mainApp__btn">View QR image</button>
             ) : (
             <>
               <QRCode id="qr-code" className="qr-code" value={qrCode} size={250} level={"H"} includeMargin={true} />
               <br />
-              <button onClick={() => setHideQRImage(true)}>Hide QR image</button>
+              <button onClick={() => setHideQRImage(true)} className="mainApp__btn">Hide QR image</button>
             </>
             )}
             {/* <button>View QR image</button> */}
             <br />
 
             <br />
-            <button onClick={downloadQR} >Download QR</button>
+            <button onClick={downloadQR} className="mainApp__btn">Download QR</button>
             <br />
         <br />
         {/*<button varient="contained" href={qrCode} download="qrcode.png" >Download QR</button> onClick={downloadQR}*/}
